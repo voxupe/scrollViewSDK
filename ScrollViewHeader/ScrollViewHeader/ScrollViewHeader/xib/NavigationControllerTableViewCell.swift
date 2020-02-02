@@ -10,6 +10,10 @@ import UIKit
 
 class NavigationControllerTableViewCell: UITableViewCell {
     
+    // MARK: - Constants
+    
+    let cellIdentifier = "navi1"
+    
     // MARK: - Outlet
 
     @IBOutlet weak var button: UIButton!
@@ -17,13 +21,17 @@ class NavigationControllerTableViewCell: UITableViewCell {
     // MARK: - Initial Method
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.collectionView.register(UINib(nibName: "NavigationControllerTableViewCell",
+                                           bundle: nil),
+                                     forCellWithReuseIdentifier: self.cellIdentifier)
     }
     
     // MARK: - Button Action
     
     @IBAction func toNextButtonAction(_ sender: UIButton) {
-        let view: containPageController = R.sto
+        let nextView = UIStoryboard(name: "main", bundle: nil).instantiateInitialViewController() as! ViewController
+        nextView.modalPresentationStyle = .fullScreen
+        self.window?.rootViewController?.present(nextView, animated: false, completion: nil)
     }
     
 

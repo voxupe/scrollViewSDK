@@ -7,4 +7,5 @@ target 'ScrollViewHeader' do
 
   # Pods for ScrollViewHeader
 pod "MXParallaxHeader"
+pod "R.swift"
 end
